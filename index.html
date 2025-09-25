@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MentorIA - Seu Arquiteto de Sistemas Pessoais</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark-blue': '#22589e',
+                        'brand-mid-blue': '#3f78c0',
+                        'brand-teal': '#6dbca2',
+                        'brand-light-green': '#a8d975',
+                        'slate': {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+        }
+        .gradient-text {
+            background: linear-gradient(45deg, #3f78c0, #6dbca2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .nav-hidden {
+            transform: translateY(-100%);
+        }
+        .nav-visible {
+            transform: translateY(0);
+        }
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            will-change: opacity, transform;
+        }
+        .reveal-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .modal-overlay {
+            transition: opacity 0.3s ease-in-out;
+        }
+        .modal-content {
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        }
+        .bg-grid-pattern {
+            background-image: linear-gradient(rgba(203, 213, 225, 0.7) 1px, transparent 1px), linear-gradient(to right, rgba(203, 213, 225, 0.7) 1px, transparent 1px);
+            background-size: 2rem 2rem;
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-700 antialiased">
+
+    <!-- CABEÇALHO E NAVEGAÇÃO -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg border-b border-slate-200 transition-transform duration-300 nav-visible">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-3">
+                <svg class="h-8 w-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGradNav" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#3f78c0" />
+                            <stop offset="100%" stop-color="#6dbca2" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M22 7.49994L12 12.4999L2 7.49994L12 2.49994L22 7.49994Z" fill="url(#logoGradNav)"/>
+                    <path d="M4 9.49994V14.4999C4 14.776 4.11071 15.0412 4.30263 15.2332L11.3026 22.2332C11.7161 22.6466 12.3653 22.6466 12.7788 22.2332L19.7788 15.2332C19.9707 15.0412 20.0814 14.776 20.0814 14.4999V9.49994L12.0407 13.4999L4 9.49994Z" fill="url(#logoGradNav)"/>
+                </svg>
+                <span class="text-slate-900 text-xl font-bold">MentorIA</span>
+            </a>
+            <button class="open-modal-button bg-brand-mid-blue hover:bg-brand-dark-blue text-white font-semibold py-2 px-5 rounded-lg transition-all duration-300 transform hover:scale-105">
+                Entrar na Lista
+            </button>
+        </div>
+    </nav>
+
+    <!-- SEÇÃO 1: HERO -->
+    <header class="min-h-screen flex items-center justify-center bg-grid-pattern relative overflow-hidden pt-20">
+        <div class="container mx-auto px-6 py-16 text-center relative z-10">
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-slate-900 leading-tight mb-4 reveal-on-scroll">
+                Seu sucesso não é sobre <span class="gradient-text">força de vontade</span>. É sobre ter o <span class="gradient-text">sistema certo</span>.
+            </h1>
+            <p class="max-w-3xl mx-auto text-lg md:text-xl text-slate-600 mb-8 reveal-on-scroll" style="transition-delay: 0.2s;">
+                MentorIA é o seu arquiteto de sistemas pessoais. Uma Inteligência Artificial que trabalha com você, 24/7, para construir os hábitos e as rotinas que geram resultados de verdade, sem esgotamento.
+            </p>
+            <div class="flex flex-col items-center gap-4 reveal-on-scroll" style="transition-delay: 0.4s;">
+                <button class="open-modal-button w-full sm:w-auto bg-gradient-to-r from-brand-mid-blue to-brand-teal hover:opacity-90 text-white font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg shadow-brand-mid-blue/30">
+                    QUERO ENTRAR NA LISTA DE ESPERA
+                </button>
+                <span class="text-sm text-slate-500">Acesso antecipado e exclusivo para os primeiros membros.</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- SEÇÃO 2: O PROBLEMA -->
+        <section class="py-16 sm:py-24 overflow-hidden">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-6 reveal-on-scroll">Você se sente preso neste ciclo?</h2>
+                <p class="max-w-2xl mx-auto text-lg text-slate-600 mb-12 reveal-on-scroll" style="transition-delay: 0.2s;">
+                    Você define metas ambiciosas, compra cursos, baixa apps de produtividade... e algumas semanas depois, tudo volta a ser como antes. Se você se identifica com isso, você não está sozinho.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
+                    <div class="bg-slate-100 p-6 rounded-xl border border-slate-200 reveal-on-scroll">
+                        <p class="text-2xl mb-2">✅</p>
+                        <h3 class="font-semibold text-slate-800 text-lg mb-2">Motivação que desaparece</h3>
+                        <p class="text-slate-600">A empolgação inicial some e a rotina antiga vence.</p>
+                    </div>
+                    <div class="bg-slate-100 p-6 rounded-xl border border-slate-200 reveal-on-scroll" style="transition-delay: 0.1s;">
+                        <p class="text-2xl mb-2">✅</p>
+                        <h3 class="font-semibold text-slate-800 text-lg mb-2">Excesso de informação</h3>
+                        <p class="text-slate-600">Milhares de dicas e "hacks" que mais confundem do que ajudam.</p>
+                    </div>
+                    <div class="bg-slate-100 p-6 rounded-xl border border-slate-200 reveal-on-scroll" style="transition-delay: 0.2s;">
+                        <p class="text-2xl mb-2">✅</p>
+                        <h3 class="font-semibold text-slate-800 text-lg mb-2">Ferramentas genéricas</h3>
+                        <p class="text-slate-600">Apps de tarefas que organizam o caos, mas não resolvem a causa.</p>
+                    </div>
+                    <div class="bg-slate-100 p-6 rounded-xl border border-slate-200 reveal-on-scroll" style="transition-delay: 0.3s;">
+                        <p class="text-2xl mb-2">✅</p>
+                        <h3 class="font-semibold text-slate-800 text-lg mb-2">Falta de accountability</h3>
+                        <p class="text-slate-600">Ninguém para te ajudar a ajustar o curso quando as coisas saem do trilho.</p>
+                    </div>
+                </div>
+                <p class="mt-12 text-xl font-bold text-slate-900 reveal-on-scroll">O problema não é você. <span class="gradient-text">O problema é o método.</span></p>
+            </div>
+        </section>
+
+        <!-- DADOS E GRÁFICOS -->
+        <section class="py-16 sm:py-24 bg-slate-50 overflow-hidden">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-4 reveal-on-scroll">A Realidade em Números</h2>
+                    <p class="max-w-2xl mx-auto text-lg text-slate-600 reveal-on-scroll" style="transition-delay: 0.2s;">As estatísticas mostram por que construir sistemas é mais eficaz do que depender da motivação.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <div class="bg-white p-8 rounded-2xl border border-slate-200 text-center reveal-on-scroll shadow-md">
+                        <h3 class="font-bold text-xl text-slate-800 mb-4">O Ciclo da Procrastinação</h3>
+                        <div class="relative w-48 h-48 mx-auto mb-4">
+                            <svg class="w-full h-full" viewBox="0 0 120 120">
+                                <circle class="text-slate-200" stroke-width="10" stroke="currentColor" fill="transparent" r="50" cx="60" cy="60"/>
+                                <circle class="text-brand-mid-blue" stroke-width="10" stroke-linecap="round" stroke="currentColor" fill="transparent" r="50" cx="60" cy="60"
+                                    style="stroke-dasharray: 314.159; stroke-dashoffset: 37.699;" transform="rotate(-90 60 60)"/>
+                            </svg>
+                            <span class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-3xl font-bold text-slate-900">88%</span>
+                        </div>
+                        <p class="text-slate-600">das pessoas procrastinam por pelo menos uma hora todos os dias.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl border border-slate-200 text-center reveal-on-scroll shadow-md" style="transition-delay: 0.1s;">
+                        <h3 class="font-bold text-xl text-slate-800 mb-4">Metas vs. Realidade</h3>
+                        <div class="flex justify-center items-end gap-4 h-48 mb-4">
+                            <div class="flex flex-col items-center">
+                                <div class="w-16 h-8 rounded-t-lg bg-brand-teal"></div>
+                                <span class="text-xl font-bold text-slate-900 mt-2">9%</span>
+                                <span class="text-sm text-slate-500">Sucesso</span>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <div class="w-16 h-40 rounded-t-lg bg-red-500"></div>
+                                <span class="text-xl font-bold text-slate-900 mt-2">91%</span>
+                                <span class="text-sm text-slate-500">Abandonam</span>
+                            </div>
+                        </div>
+                        <p class="text-slate-600">das resoluções de Ano Novo falham, a maioria antes de janeiro acabar.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl border border-slate-200 text-center reveal-on-scroll shadow-md" style="transition-delay: 0.2s;">
+                        <h3 class="font-bold text-xl text-slate-800 mb-4">O Poder dos Sistemas</h3>
+                        <div class="h-48 flex items-center justify-center mb-4">
+                            <p class="text-6xl font-black">
+                                <span class="gradient-text">2x</span>
+                            </p>
+                        </div>
+                        <p class="text-slate-600">Pessoas com sistemas e hábitos concretos têm 2x mais chances de atingir seus objetivos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- A SOLUÇÃO -->
+        <section class="py-16 sm:py-24 overflow-hidden">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="text-center lg:text-left reveal-on-scroll">
+                        <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-6">E se, em vez de mais um app, você tivesse um <span class="gradient-text">parceiro</span>?</h2>
+                        <p class="text-lg text-slate-600 mb-4">A MentorIA representa uma mudança fundamental: saímos do gerenciamento de tarefas para a arquitetura de sistemas.</p>
+                        <p class="text-lg text-slate-600">Estamos aqui para te ajudar a construir a máquina que produz os resultados que você deseja, de forma consistente e sustentável.</p>
+                    </div>
+                    <div class="reveal-on-scroll" style="transition-delay: 0.2s;">
+                        <div class="bg-slate-100 p-4 rounded-2xl shadow-lg shadow-slate-300/30 border border-slate-200">
+                             <img src="https://placehold.co/600x400/f1f5f9/475569?text=Interface+da+MentorIA" alt="Interface do aplicativo MentorIA" class="rounded-lg w-full" onerror="this.onerror=null;this.src='https://placehold.co/600x400/f1f5f9/475569?text=Interface+Indisponível';">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FUNCIONALIDADES & DEMO -->
+        <section class="py-16 sm:py-24 bg-slate-50 overflow-hidden">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-4 reveal-on-scroll">Sua jornada para a alta performance</h2>
+                    <p class="max-w-2xl mx-auto text-lg text-slate-600 reveal-on-scroll" style="transition-delay: 0.2s;">A MentorIA trabalha com você em um ciclo de melhoria contínua.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-white p-8 rounded-xl border border-slate-200 hover:border-brand-mid-blue transition-all duration-300 reveal-on-scroll">
+                        <div class="mb-4 text-brand-mid-blue"><svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a2 2 0 01-2-2V4a2 2 0 012-2h8a2 2 0 012 2v4z"/></svg></div>
+                        <h3 class="font-bold text-xl text-slate-800 mb-2">1. Diagnóstico Profundo</h3>
+                        <p class="text-slate-600">Um diálogo socrático para encontrar seu "Monte Everest" pessoal e identificar barreiras invisíveis.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl border border-slate-200 hover:border-brand-mid-blue transition-all duration-300 reveal-on-scroll" style="transition-delay: 0.1s;">
+                        <div class="mb-4 text-brand-mid-blue"><svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"/></svg></div>
+                        <h3 class="font-bold text-xl text-slate-800 mb-2">2. Co-criação do Sistema</h3>
+                        <p class="text-slate-600">Baseado em ciência comportamental, desenhamos juntos hábitos mínimos e realistas para sua vida.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl border border-slate-200 hover:border-brand-mid-blue transition-all duration-300 reveal-on-scroll" style="transition-delay: 0.2s;">
+                        <div class="mb-4 text-brand-mid-blue"><svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></div>
+                        <h3 class="font-bold text-xl text-slate-800 mb-2">3. Ação e Ajuste em Tempo Real</h3>
+                        <p class="text-slate-600">A IA sugere tarefas com base no seu contexto e energia, evitando que você quebre a corrente.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl border border-slate-200 hover:border-brand-mid-blue transition-all duration-300 reveal-on-scroll" style="transition-delay: 0.3s;">
+                        <div class="mb-4 text-brand-mid-blue"><svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg></div>
+                        <h3 class="font-bold text-xl text-slate-800 mb-2">4. Evolução e Feedback</h3>
+                        <p class="text-slate-600">Receba insights semanais e otimize seu sistema em um ciclo constante de aprendizado.</p>
+                    </div>
+                </div>
+                <div class="mt-16 text-center bg-white p-8 rounded-2xl border border-slate-200 max-w-4xl mx-auto reveal-on-scroll shadow-lg">
+                    <h3 class="text-2xl font-bold text-slate-900 mb-4">Experimente o poder da MentorIA agora</h3>
+                    <p class="text-slate-600 mb-6">Diga-nos um objetivo e nossa IA irá sugerir um primeiro passo acionável, baseado em ciência comportamental.</p>
+                    <div class="max-w-xl mx-auto">
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <input type="text" id="goal-input" placeholder="Ex: Ler mais livros..." class="w-full bg-slate-100 text-slate-900 border border-slate-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-mid-blue flex-grow">
+                            <button id="generate-habit-button" class="bg-gradient-to-r from-brand-mid-blue to-brand-teal hover:opacity-90 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed">
+                                ✨ Gerar Hábito
+                            </button>
+                        </div>
+                    </div>
+                    <div id="loader" class="mt-6 hidden">
+                        <div class="flex justify-center items-center gap-2 text-slate-500">
+                            <svg class="animate-spin h-5 w-5 text-brand-mid-blue" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            <span>Analisando seu objetivo...</span>
+                        </div>
+                    </div>
+                    <div id="habit-result" class="mt-6 text-left bg-slate-100 p-6 rounded-lg min-h-[100px] border border-slate-200 hidden"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MODELO DE NEGÓCIO -->
+        <section class="py-16 sm:py-24 overflow-hidden">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-4 reveal-on-scroll">Nosso Modelo de Negócio</h2>
+                    <p class="max-w-2xl mx-auto text-lg text-slate-600 reveal-on-scroll" style="transition-delay: 0.2s;">Crescimento Acessível e Transparente</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto items-start">
+                    <div class="bg-slate-100 p-8 rounded-2xl border border-slate-200 h-full flex flex-col reveal-on-scroll">
+                        <h3 class="text-2xl font-bold text-slate-800 mb-2">Gratuito</h3>
+                        <p class="text-slate-600 mb-6">"Seu Ponto de Partida"</p>
+                        <ul class="space-y-4 text-slate-700 mb-8 flex-grow">
+                           <li class="flex items-center"><svg class="h-5 w-5 text-brand-teal mr-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Crie até 3 sistemas de hábitos</li>
+                           <li class="flex items-center"><svg class="h-5 w-5 text-brand-teal mr-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Acesso ao "Mentor IA Generalista"</li>
+                           <li class="flex items-center"><svg class="h-5 w-5 text-brand-teal mr-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Integração com sua Agenda</li>
+                           <li class="flex items-center"><svg class="h-5 w-5 text-brand-teal mr-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Relatório semanal básico</li>
+                        </ul>
+                        <button class="w-full bg-slate-300 hover:bg-slate-400 text-slate-800 font-bold py-3 px-6 rounded-lg transition-colors">Para sempre grátis</button>
+                    </div>
+                    <div class="bg-gradient-to-br from-brand-dark-blue via-brand-mid-blue to-brand-teal text-white p-8 rounded-2xl border-2 border-brand-mid-blue shadow-2xl shadow-brand-mid-blue/30 transform lg:scale-105 h-full flex flex-col reveal-on-scroll" style="transition-delay: 0.1s;">
+                        <h3 class="text-2xl font-bold mb-2">Premium</h3>
+                        <p class="opacity-80 mb-6">"Sua Aceleração Pessoal"</p>
+                        <ul class="space-y-4 opacity-90 mb-8 flex-grow">
+                           <li class="flex items-center"><svg class="h-5 w-5 mr-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Tudo do plano gratuito, e mais:</li>
+                           <li class="flex items-center font-semibold"><svg class="h-5 w-5 mr-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Sistemas de hábitos ilimitados</li>
+                           <li class="flex items-center font-semibold"><svg class="h-5 w-5 mr-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Acesso a Mentores IA Especializados</li>
+                           <li class="flex items-center font-semibold"><svg class="h-5 w-5 mr-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Integrações profundas (Saúde, etc.)</li>
+                           <li class="flex items-center font-semibold"><svg class="h-5 w-5 mr-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Análises preditivas e avançadas</li>
+                        </ul>
+                        <button class="w-full bg-white hover:bg-opacity-90 text-brand-dark-blue font-bold py-3 px-6 rounded-lg transition-colors">Assinatura mensal ou anual</button>
+                    </div>
+                    <div class="bg-slate-100 p-8 rounded-2xl border border-slate-200 h-full flex flex-col reveal-on-scroll" style="transition-delay: 0.2s;">
+                        <h3 class="text-2xl font-bold text-slate-800 mb-2">Teams</h3>
+                        <p class="text-slate-600 mb-6">"Performance para seu Time"</p>
+                        <ul class="space-y-4 text-slate-700 mb-8 flex-grow">
+                            <li class="flex items-center"><svg class="h-5 w-5 text-brand-teal mr-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Todas as funcionalidades Premium</li>
+                            <li class="flex items-center"><svg class="h-5 w-5 text-brand-teal mr-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Dashboard para gestores</li>
+                            <li class="flex items-center"><svg class="h-5 w-5 text-brand-teal mr-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Mentores IA customizados</li>
+                            <li class="flex items-center"><svg class="h-5 w-5 text-brand-teal mr-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Workshops e suporte dedicado</li>
+                        </ul>
+                        <button class="w-full bg-slate-300 hover:bg-slate-400 text-slate-800 font-bold py-3 px-6 rounded-lg transition-colors">Entre em contato</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- APLICAÇÃO NO MERCADO -->
+        <section class="py-16 sm:py-24 bg-slate-50 overflow-hidden">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-12">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-4 reveal-on-scroll">Construído para quem busca a sua melhor versão</h2>
+                    <p class="max-w-2xl mx-auto text-lg text-slate-600 reveal-on-scroll" style="transition-delay: 0.2s;">A MentorIA se adapta a diferentes jornadas. Veja como ela se encaixa na sua:</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-xl border border-slate-200 reveal-on-scroll">
+                         <h3 class="font-bold text-xl text-slate-800 mb-3">Para o Profissional Ambicioso</h3>
+                         <p class="text-slate-600">Gerencie sua energia, foque no que realmente importa e evite o burnout, construindo um sistema de trabalho profundo e eficiente.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl border border-slate-200 reveal-on-scroll" style="transition-delay: 0.1s;">
+                         <h3 class="font-bold text-xl text-slate-800 mb-3">Para o Empreendedor</h3>
+                         <p class="text-slate-600">Equilibre as demandas da empresa com sua saúde pessoal, garantindo que você construa hábitos de sucesso tanto no trabalho quanto fora dele.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl border border-slate-200 reveal-on-scroll" style="transition-delay: 0.2s;">
+                         <h3 class="font-bold text-xl text-slate-800 mb-3">Para o Estudante e Concurseiro</h3>
+                         <p class="text-slate-600">Crie um plano de estudos inteligente e adaptativo, vença a procrastinação e garanta uma rotina de aprendizado consistente e eficaz.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA FINAL -->
+        <section id="cta" class="py-16 sm:py-24 overflow-hidden">
+            <div class="container mx-auto px-6 text-center">
+                 <h2 class="text-3xl sm:text-5xl font-bold text-slate-900 leading-tight mb-6 reveal-on-scroll">
+                    O futuro da performance não é sobre tentar mais. <br class="hidden lg:block"/> É sobre <span class="gradient-text">construir melhor</span>.
+                </h2>
+                <p class="max-w-2xl mx-auto text-lg text-slate-600 mb-8 reveal-on-scroll" style="transition-delay: 0.2s;">
+                    Chega de ciclos de frustração. Está na hora de ter um sistema que trabalha por você. Junte-se a nós.
+                </p>
+                <button class="open-modal-button inline-block bg-gradient-to-r from-brand-mid-blue to-brand-teal hover:opacity-90 text-white font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg shadow-brand-mid-blue/30 reveal-on-scroll" style="transition-delay: 0.4s;">
+                    QUERO SER PIONEIRO. ME INSCREVA NA LISTA!
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-8 border-t border-slate-200">
+        <div class="container mx-auto px-6 text-center text-slate-500">
+            <p>&copy; 2024 MentorIA. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- MODAL -->
+    <div id="waitlist-modal" class="fixed inset-0 z-50 flex items-center justify-center hidden">
+        <div id="modal-overlay" class="absolute inset-0 bg-black/70 modal-overlay"></div>
+        <div id="modal-content" class="relative bg-white w-full max-w-md m-4 p-8 rounded-2xl shadow-2xl border border-slate-200 modal-content transform scale-95 opacity-0">
+            <button id="close-modal-button" class="absolute top-4 right-4 text-slate-400 hover:text-slate-800 transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <div class="text-center">
+                <svg class="h-12 w-12 mx-auto mb-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGradModal" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#3f78c0" />
+                            <stop offset="100%" stop-color="#6dbca2" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M22 7.49994L12 12.4999L2 7.49994L12 2.49994L22 7.49994Z" fill="url(#logoGradModal)"/>
+                    <path d="M4 9.49994V14.4999C4 14.776 4.11071 15.0412 4.30263 15.2332L11.3026 22.2332C11.7161 22.6466 12.3653 22.6466 12.7788 22.2332L19.7788 15.2332C19.9707 15.0412 20.0814 14.776 20.0814 14.4999V9.49994L12.0407 13.4999L4 9.49994Z" fill="url(#logoGradModal)"/>
+                </svg>
+                <h3 class="text-2xl font-bold text-slate-900 mb-2">Junte-se à revolução da performance</h3>
+                <p class="text-slate-600 mb-6">Seja o primeiro a saber quando a MentorIA for lançada.</p>
+                <form id="waitlist-form">
+                    <input type="email" id="email-input" placeholder="seu.email@exemplo.com" required class="w-full bg-slate-100 text-slate-900 border border-slate-300 rounded-lg px-4 py-3 mb-4 focus:outline-none focus:ring-2 focus:ring-brand-mid-blue">
+                    <button type="submit" class="w-full bg-gradient-to-r from-brand-mid-blue to-brand-teal hover:opacity-90 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105">
+                        ENTRAR NA LISTA
+                    </button>
+                </form>
+                 <div id="form-feedback" class="mt-4 text-sm"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const navbar = document.getElementById('navbar');
+        let lastScrollY = window.scrollY;
+
+        window.addEventListener('scroll', () => {
+            if (lastScrollY < window.scrollY && window.scrollY > 100) {
+                navbar.classList.add('nav-hidden');
+            } else {
+                navbar.classList.remove('nav-hidden');
+            }
+            lastScrollY = window.scrollY;
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        const modal = document.getElementById('waitlist-modal');
+        const overlay = document.getElementById('modal-overlay');
+        const modalContent = document.getElementById('modal-content');
+        const openModalButtons = document.querySelectorAll('.open-modal-button');
+        const closeModalButton = document.getElementById('close-modal-button');
+        const waitlistForm = document.getElementById('waitlist-form');
+        const feedbackMessage = document.getElementById('form-feedback');
+        
+        const openModal = () => {
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                overlay?.classList.add('opacity-100');
+                modalContent?.classList.remove('scale-95', 'opacity-0');
+            }, 10);
+        };
+        
+        const closeModal = () => {
+            overlay?.classList.remove('opacity-100');
+            modalContent?.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                modal?.classList.add('hidden');
+                if(feedbackMessage) {
+                    feedbackMessage.textContent = '';
+                    feedbackMessage.className = 'mt-4 text-sm';
+                }
+                waitlistForm?.reset();
+            }, 300);
+        };
+
+        openModalButtons.forEach(button => button.addEventListener('click', openModal));
+        closeModalButton?.addEventListener('click', closeModal);
+        overlay?.addEventListener('click', closeModal);
+
+        waitlistForm?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const emailInput = document.getElementById('email-input');
+            const email = emailInput ? emailInput.value : '';
+            if (feedbackMessage) {
+                feedbackMessage.textContent = `Obrigado! ${email} foi adicionado à nossa lista.`;
+                feedbackMessage.classList.add('text-green-600');
+            }
+            setTimeout(closeModal, 2000);
+        });
+
+        const generateButton = document.getElementById('generate-habit-button');
+        const goalInput = document.getElementById('goal-input');
+        const habitResultContainer = document.getElementById('habit-result');
+        const loader = document.getElementById('loader');
+
+        generateButton?.addEventListener('click', async () => {
+            const userGoal = goalInput ? goalInput.value.trim() : '';
+            if (!userGoal) {
+                if (habitResultContainer) {
+                    habitResultContainer.style.display = 'block';
+                    habitResultContainer.innerHTML = `<p class="text-yellow-600">Por favor, insira um objetivo para começar.</p>`;
+                }
+                return;
+            }
+
+            if(loader) loader.style.display = 'block';
+            if(habitResultContainer) {
+                habitResultContainer.style.display = 'none';
+                habitResultContainer.innerHTML = '';
+            }
+            if(generateButton) generateButton.disabled = true;
+
+            const apiKey = "";
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+            const systemPrompt = "Você é a MentorIA, uma IA especialista em ciência comportamental e criação de sistemas de alta performance. Sua missão é ajudar usuários a construir hábitos atômicos. Seja conciso, encorajador e prático. Responda em markdown.";
+            const userQuery = `Meu objetivo é "${userGoal}". Me dê 2 ou 3 sugestões de primeiros hábitos atômicos. Apresente em lista com título e breve explicação.`;
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        contents: [{ parts: [{ text: userQuery }] }],
+                        systemInstruction: { parts: [{ text: systemPrompt }] },
+                    })
+                });
+
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                const result = await response.json();
+                const candidate = result.candidates?.[0];
+
+                if (candidate?.content?.parts?.[0]?.text) {
+                    let text = candidate.content.parts[0].text;
+                    text = text
+                        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                        .replace(/^(#{1,6})\s*(.*)/gm, `<h4 class="text-lg font-bold text-slate-800 mb-3 mt-4">${content}</h4>`)
+                        .replace(/^\s*[\-\*]\s(.*)/gm, `<li class="flex items-start gap-3 mb-2"><svg class="w-5 h-5 text-brand-teal mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span>$1</span></li>`)
+                        .replace(/<\/li>\n/g, '</li>');
+                    if(habitResultContainer) habitResultContainer.innerHTML = `<ul class="list-none">${text}</ul>`;
+                } else {
+                    if(habitResultContainer) habitResultContainer.innerHTML = `<p class="text-red-600">Não foi possível gerar uma sugestão. Tente novamente.</p>`;
+                }
+            } catch (error) {
+                console.error("Error calling Gemini API:", error);
+                if(habitResultContainer) habitResultContainer.innerHTML = `<p class="text-red-600">Ocorreu um erro ao contatar a IA. Por favor, tente novamente.</p>`;
+            } finally {
+                if(loader) loader.style.display = 'none';
+                if(habitResultContainer) habitResultContainer.style.display = 'block';
+                if(generateButton) generateButton.disabled = false;
+            }
+        });
+    });
+    </script>
+</body>
+</html>
+
