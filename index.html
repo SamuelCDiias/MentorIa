@@ -46,43 +46,45 @@
       id="navbar"
       class="fixed top-0 left-0 right-0 z-50 glassmorphism transition-transform duration-300 nav-visible"
     >
-      <div
-        class="container mx-auto px-6 py-4 flex justify-between items-center"
-      >
-        <a href="#" class="flex items-center gap-3 group">
+      <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="index.html" class="flex items-center gap-3 group">
           <div class="floating-animation">
-            <svg
-              class="h-8 w-8"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
+            <svg class="h-8 w-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <linearGradient id="logoGradNav" x1="0" y1="0" x2="1" y2="1">
                   <stop offset="0%" stop-color="#3f78c0" />
                   <stop offset="100%" stop-color="#6dbca2" />
                 </linearGradient>
               </defs>
-              <path
-                d="M22 7.49994L12 12.4999L2 7.49994L12 2.49994L22 7.49994Z"
-                fill="url(#logoGradNav)"
-              />
-              <path
-                d="M4 9.49994V14.4999C4 14.776 4.11071 15.0412 4.30263 15.2332L11.3026 22.2332C11.7161 22.6466 12.3653 22.6466 12.7788 22.2332L19.7788 15.2332C19.9707 15.0412 20.0814 14.776 20.0814 14.4999V9.49994L12.0407 13.4999L4 9.49994Z"
-                fill="url(#logoGradNav)"
-              />
+              <path d="M22 7.49994L12 12.4999L2 7.49994L12 2.49994L22 7.49994Z" fill="url(#logoGradNav)" />
+              <path d="M4 9.49994V14.4999C4 14.776 4.11071 15.0412 4.30263 15.2332L11.3026 22.2332C11.7161 22.6466 12.3653 22.6466 12.7788 22.2332L19.7788 15.2332C19.9707 15.0412 20.0814 14.776 20.0814 14.4999V9.49994L12.0407 13.4999L4 9.49994Z" fill="url(#logoGradNav)" />
             </svg>
           </div>
-          <span
-            class="text-slate-900 text-xl font-bold group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-brand-mid-blue group-hover:to-brand-teal group-hover:bg-clip-text transition-all duration-300"
-            >MentorIA</span
-          >
+          <span class="text-slate-900 text-xl font-bold group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-brand-mid-blue group-hover:to-brand-teal group-hover:bg-clip-text transition-all duration-300">MentorIA</span>
         </a>
-        <button
-          class="open-modal-button btn-primary text-white font-semibold py-2 px-5 rounded-lg"
-        >
+        <nav class="hidden md:flex gap-6 ml-8">
+          <a href="index.html" class="text-slate-700 hover:text-brand-mid-blue font-semibold transition-colors">Início</a>
+          <!-- <a href="#cta" class="text-slate-700 hover:text-brand-mid-blue font-semibold transition-colors">Lista de Espera</a> -->
+          <a href="explicacao-tecnologica.html" class="text-slate-700 hover:text-brand-mid-blue font-semibold transition-colors">Sobre</a>
+        </nav>
+        <button class="open-modal-button btn-primary text-white font-semibold py-2 px-5 rounded-lg ml-4">
           Entrar na Lista
         </button>
+        <button class="md:hidden flex items-center px-2 py-1" id="menu-toggle" aria-label="Abrir menu">
+          <svg class="w-7 h-7 text-brand-mid-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+      <!-- Menu mobile -->
+      <div id="mobile-menu" class="md:hidden fixed top-0 left-0 w-full h-full bg-black/60 z-50 hidden">
+        <div class="bg-white w-3/4 max-w-xs h-full shadow-lg p-8 flex flex-col gap-6">
+          <a href="index.html" class="text-slate-700 hover:text-brand-mid-blue font-semibold text-lg">Início</a>
+          <!-- <a href="#cta" class="text-slate-700 hover:text-brand-mid-blue font-semibold text-lg">Lista de Espera</a> -->
+          <a href="explicacao-tecnologica.html" class="text-slate-700 hover:text-brand-mid-blue font-semibold text-lg">Sobre</a>
+          <button class="open-modal-button btn-primary text-white font-semibold py-2 px-5 rounded-lg mt-8">Entrar na Lista</button>
+          <button id="close-mobile-menu" class="mt-4 text-slate-400 hover:text-slate-800">Fechar</button>
+        </div>
       </div>
     </nav>
 

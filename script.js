@@ -1,4 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Menu mobile
+  const menuToggle = document.getElementById("menu-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const closeMobileMenu = document.getElementById("close-mobile-menu");
+
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener("click", () => {
+      mobileMenu.classList.remove("hidden");
+    });
+  }
+  if (closeMobileMenu && mobileMenu) {
+    closeMobileMenu.addEventListener("click", () => {
+      mobileMenu.classList.add("hidden");
+    });
+  }
         const navbar = document.getElementById("navbar");
         let lastScrollY = window.scrollY;
 

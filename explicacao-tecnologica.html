@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light" />
+    <title>MentorIA - Explicação Tecnológica</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark-blue': '#22589e',
+                        'brand-mid-blue': '#3f78c0',
+                        'brand-teal': '#6dbca2',
+                        'brand-light-green': '#a8d975',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(200, 200, 200, 0.3);
+        }
+        .gradient-text {
+            background: linear-gradient(45deg, #3f78c0, #6dbca2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .floating-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+        .nav-hidden {
+            transform: translateY(-100%);
+        }
+        .nav-visible {
+            transform: translateY(0);
+        }
+        section h2 {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        section h2::before {
+            content: '';
+            display: block;
+            width: 0.75rem;
+            height: 1.75rem;
+            background: linear-gradient(180deg, #3f78c0, #6dbca2);
+            border-radius: 999px;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-700 antialiased">
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 glassmorphism transition-transform duration-300 nav-visible">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <div class="floating-animation">
+                    <svg class="h-8 w-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="logoGradNav" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#3f78c0" />
+                                <stop offset="100%" stop-color="#6dbca2" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M22 7.49994L12 12.4999L2 7.49994L12 2.49994L22 7.49994Z" fill="url(#logoGradNav)" />
+                        <path d="M4 9.49994V14.4999C4 14.776 4.11071 15.0412 4.30263 15.2332L11.3026 22.2332C11.7161 22.6466 12.3653 22.6466 12.7788 22.2332L19.7788 15.2332C19.9707 15.0412 20.0814 14.776 20.0814 14.4999V9.49994L12.0407 13.4999L4 9.49994Z" fill="url(#logoGradNav)" />
+                    </svg>
+                </div>
+                <span class="text-slate-900 text-xl font-bold group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-brand-mid-blue group-hover:to-brand-teal group-hover:bg-clip-text transition-all duration-300">MentorIA</span>
+            </a>
+        </div>
+    </nav>
+    <main class="pt-32 pb-16 min-h-screen">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <h1 class="text-4xl md:text-5xl font-black text-slate-900 mb-4">Como funciona a <span class="gradient-text">MentorIA?</span></h1>
+            <p class="text-lg text-slate-600 mb-12">Esta página detalha a arquitetura, fluxos, integrações e diferenciais técnicos do nosso sistema, oferecendo uma visão aprofundada para investidores, parceiros e usuários avançados.</p>
+            
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold text-slate-800 mb-4">Visão Geral da Arquitetura</h2>
+                <div class="bg-white rounded-xl shadow-md p-6 space-y-4 border border-slate-200" id="espaco-arquitetura">
+                    <p class="text-slate-600">A MentorIA é construída sobre uma arquitetura nativa em nuvem, projetada para escalabilidade, segurança e inteligência. O núcleo do sistema é o nosso <strong class="text-slate-800">Motor de Diálogo com IA Contextual</strong>, que utiliza modelos de linguagem avançados (LLMs) para oferecer uma experiência de coaching proativa e personalizada.</p>
+                    <p class="text-slate-600">A arquitetura é baseada em microserviços, permitindo que cada funcionalidade (integrações, análises, diálogos) opere de forma independente. Isso garante alta disponibilidade e facilita a implementação de novas funcionalidades sem impactar o sistema como um todo. A plataforma não é apenas um app reativo; é um <strong class="text-slate-800">parceiro de accountability sistêmico</strong>, focado em construir a arquitetura do comportamento do usuário.</p>
+                </div>
+            </section>
+
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold text-slate-800 mb-4">Fluxo de Funcionamento</h2>
+                <div class="bg-white rounded-xl shadow-md p-6 space-y-4 border border-slate-200" id="espaco-fluxo">
+                    <p><strong class="text-slate-800">1. Onboarding Conversacional e Diagnóstico:</strong> O usuário inicia com uma conversa, não um formulário. Usando o método socrático, a IA aprofunda-se para entender o "Monte Everest" do usuário e identificar padrões de autossabotagem de tentativas passadas.</p>
+                    <p><strong class="text-slate-800">2. Co-criação do Sistema:</strong> A IA auxilia na transformação de objetivos vagos em metas SMART. Em seguida, co-cria o sistema de hábitos (baseado em frameworks como Atomic Habits), definindo gatilhos, ações mínimas e preparação do ambiente para maximizar as chances de sucesso.</p>
+                    <p><strong class="text-slate-800">3. Ação e Proatividade em Tempo Real:</strong> Através de integrações, a IA monitora o progresso de forma não intrusiva. Se um hábito é pulado, ela intervém para entender o obstáculo. Se uma janela de oportunidade surge na agenda do usuário, a IA proativamente sugere uma ação alinhada aos seus objetivos.</p>
+                    <p><strong class="text-slate-800">4. Feedback e Evolução:</strong> Semanalmente, a IA gera relatórios de progresso com insights acionáveis (ex: "Sua consistência cai às sextas; que tal um hábito de menor energia?"). O sistema evolui com o usuário, aumentando gradualmente a complexidade dos hábitos conforme a maestria é alcançada.</p>
+                </div>
+            </section>
+
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold text-slate-800 mb-4">Integrações e Tecnologias</h2>
+                <div class="bg-white rounded-xl shadow-md p-6 space-y-4 border border-slate-200" id="espaco-integracoes">
+                    <p class="text-slate-600">Nossa plataforma se integra profundamente ao ecossistema digital do usuário para obter contexto e agir de forma proativa. As tecnologias chave incluem:</p>
+                    <ul class="list-disc list-inside space-y-2 text-slate-600">
+                        <li><strong class="text-slate-800">Inteligência Artificial:</strong> Uso de APIs de LLMs de ponta, como a API do Google Gemini, para o motor de diálogo e análise preditiva.</li>
+                        <li><strong class="text-slate-800">Integrações de Agendas:</strong> APIs do Google Calendar e Outlook para entender a disponibilidade e a carga de trabalho.</li>
+                        <li><strong class="text-slate-800">Integrações de Saúde:</strong> APIs do Apple Health, Google Fit e Strava para monitorar atividades físicas e dados de bem-estar (sono, frequência cardíaca).</li>
+                        <li><strong class="text-slate-800">Integrações de Trabalho:</strong> Conexão com Slack, Asana e Trello para avaliar os níveis de estresse e produtividade.</li>
+                        <!-- <li><strong class="text-slate-800">Banco de Dados:</strong> Utilizamos bancos de dados NoSQL escaláveis para armazenar dados de progresso e garantir consultas rápidas e flexíveis.</li> -->
+                    </ul>
+                </div>
+            </section>
+
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold text-slate-800 mb-4">Diferenciais Técnicos</h2>
+                <div class="bg-white rounded-xl shadow-md p-6 space-y-4 border border-slate-200" id="espaco-diferenciais">
+                     <ul class="list-disc list-inside space-y-2 text-slate-600">
+                        <li><strong class="text-slate-800">Proatividade Contextual:</strong> Diferente de apps passivos, nosso sistema cruza dados de múltiplas fontes (agenda, saúde, localização) para intervir e sugerir ações no momento mais oportuno.</li>
+                        <li><strong class="text-slate-800">Arquitetura Comportamental:</strong> O foco não está em "ticar tarefas", mas em construir e reforçar o sistema de gatilhos e recompensas que sustentam o comportamento a longo prazo.</li>
+                        <li><strong class="text-slate-800">Hiper-personalização:</strong> O diagnóstico socrático inicial e o aprendizado contínuo permitem que a IA se adapte ao perfil psicológico e à rotina de cada usuário, abandonando abordagens genéricas.</li>
+                        <li><strong class="text-slate-800">Frameworks Adaptativos:</strong> O usuário pode escolher a filosofia de coaching da IA (ex: GTD, Deep Work), e o motor ajusta suas recomendações de acordo com os princípios escolhidos.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-3xl font-bold text-slate-800 mb-4">Roadmap Futuro</h2>
+                <div class="bg-white rounded-xl shadow-md p-6 space-y-4 border border-slate-200" id="espaco-roadmap">
+                     <p class="text-slate-600">Nossa visão de longo prazo é consolidar a MentorIA como uma ferramenta indispensável de desenvolvimento pessoal. Os próximos grandes passos tecnológicos são:</p>
+                     <ul class="list-disc list-inside space-y-2 text-slate-600">
+                        <li><strong class="text-slate-800">"Digital Twin" Comportamental:</strong> Desenvolver um modelo preditivo tão preciso que possamos criar um "gêmeo digital" dos padrões do usuário. Isso nos permitirá antecipar com altíssima precisão os riscos de desvio de rota ou burnout, intervindo preventivamente.</li>
+                        <li><strong class="text-slate-800">Marketplace de Coaching Humano:</strong> Integrar uma plataforma onde, ao identificar um desafio complexo, a IA possa sugerir uma sessão com um coach humano especialista. A IA atuaria como mediadora, fornecendo um resumo de dados (com permissão explícita) para tornar a sessão extremamente focada e produtiva.</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer class="py-8 border-t border-slate-200 bg-white">
+        <div class="container mx-auto px-6 text-center text-slate-500">
+            <p>&copy; 2024 MentorIA. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navbar = document.getElementById('navbar');
+            if (!navbar) return;
+
+            let lastScrollY = window.scrollY;
+
+            window.addEventListener('scroll', () => {
+                if (lastScrollY < window.scrollY && window.scrollY > 100) {
+                    navbar.classList.add('nav-hidden');
+                } else {
+                    navbar.classList.remove('nav-hidden');
+                }
+                lastScrollY = window.scrollY;
+            });
+        });
+    </script>
+</body>
+</html>
