@@ -31,6 +31,36 @@ body {
         transform: translateY(0);
       }
 
+      /* Estilos específicos para o menu mobile melhorado */
+      .mobile-menu-link {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .mobile-menu-link::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(63, 120, 192, 0.1), transparent);
+        transition: left 0.5s ease;
+      }
+
+      .mobile-menu-link:hover::before {
+        left: 100%;
+      }
+
+      /* Animação suave para o menu mobile */
+      .mobile-menu-slide {
+        transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      .mobile-menu-overlay {
+        transition: opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
       .reveal-on-scroll {
         opacity: 0;
         transform: translateY(50px);
@@ -221,4 +251,66 @@ body {
         100% {
           content: "...";
         }
+      }
+
+      /* Estilos específicos da página missão.html */
+      .glassmorphism {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(200, 200, 200, 0.3);
+      }
+
+      .gradient-text {
+        background: linear-gradient(45deg, #3f78c0, #6dbca2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .floating-animation {
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-8px); }
+        100% { transform: translateY(0px); }
+      }
+
+      .nav-hidden {
+        transform: translateY(-100%);
+      }
+
+      .nav-visible {
+        transform: translateY(0);
+      }
+
+      /* Estilos específicos para o menu mobile melhorado */
+      .mobile-menu-link {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .mobile-menu-link::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(63, 120, 192, 0.1), transparent);
+        transition: left 0.5s ease;
+      }
+
+      .mobile-menu-link:hover::before {
+        left: 100%;
+      }
+
+      /* Animação suave para o menu mobile */
+      .mobile-menu-slide {
+        transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      .mobile-menu-overlay {
+        transition: opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       }

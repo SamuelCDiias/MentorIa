@@ -1,32 +1,75 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Menu mobile
+  // Menu mobile melhorado
   const menuToggle = document.getElementById("menu-toggle");
   const mobileMenu = document.getElementById("mobile-menu");
+  const mobileMenuContent = document.getElementById("mobile-menu-content");
   const closeMobileMenu = document.getElementById("close-mobile-menu");
 
-  if (menuToggle && mobileMenu) {
-    menuToggle.addEventListener("click", () => {
+  const openMobileMenu = () => {
+    if (mobileMenu && mobileMenuContent) {
       mobileMenu.classList.remove("hidden");
-    });
-  }
-  if (closeMobileMenu && mobileMenu) {
-    closeMobileMenu.addEventListener("click", () => {
-      mobileMenu.classList.add("hidden");
-    });
-  }
-        const navbar = document.getElementById("navbar");
-        let lastScrollY = window.scrollY;
+      document.body.style.overflow = "hidden";
+      
+      // Pequeno delay para garantir que o elemento está visível antes da animação
+      setTimeout(() => {
+        mobileMenu.classList.remove("opacity-0");
+        mobileMenuContent.classList.remove("-translate-x-full");
+      }, 10);
+    }
+  };
 
-        // Melhor controle de scroll para navbar
-        window.addEventListener("scroll", () => {
-          const currentScrollY = window.scrollY;
-          if (lastScrollY < currentScrollY && currentScrollY > 100) {
-            navbar.classList.add("nav-hidden");
-          } else {
-            navbar.classList.remove("nav-hidden");
-          }
-          lastScrollY = currentScrollY;
-        });
+  const closeMobileMenuFunc = () => {
+    if (mobileMenu && mobileMenuContent) {
+      mobileMenu.classList.add("opacity-0");
+      mobileMenuContent.classList.add("-translate-x-full");
+      document.body.style.overflow = "";
+      
+      setTimeout(() => {
+        mobileMenu.classList.add("hidden");
+      }, 300);
+    }
+  };
+
+  if (menuToggle) {
+    menuToggle.addEventListener("click", openMobileMenu);
+  }
+  
+  if (closeMobileMenu) {
+    closeMobileMenu.addEventListener("click", closeMobileMenuFunc);
+  }
+
+  // Fechar menu ao clicar no overlay
+  if (mobileMenu) {
+    mobileMenu.addEventListener("click", (e) => {
+      if (e.target === mobileMenu) {
+        closeMobileMenuFunc();
+      }
+    });
+  }
+
+  // Fechar menu com ESC
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && mobileMenu && !mobileMenu.classList.contains("hidden")) {
+      closeMobileMenuFunc();
+    }
+  });
+
+  // Controle de scroll para navbar (funciona em todas as páginas)
+  const navbar = document.getElementById("navbar");
+  if (navbar) {
+    let lastScrollY = window.scrollY;
+
+    // Melhor controle de scroll para navbar
+    window.addEventListener("scroll", () => {
+      const currentScrollY = window.scrollY;
+      if (lastScrollY < currentScrollY && currentScrollY > 100) {
+        navbar.classList.add("nav-hidden");
+      } else {
+        navbar.classList.remove("nav-hidden");
+      }
+      lastScrollY = currentScrollY;
+    });
+  }
 
         // Observer melhorado para revelar elementos
         const observer = new IntersectionObserver(

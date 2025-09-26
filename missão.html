@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light" />
+    <title>Nosso Objetivo - MentorIA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark-blue': '#22589e',
+                        'brand-mid-blue': '#3f78c0',
+                        'brand-teal': '#6dbca2',
+                        'brand-light-green': '#a8d975',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-700 antialiased">
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 glassmorphism transition-transform duration-300 nav-visible">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <div class="floating-animation">
+                    <svg class="h-8 w-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="logoGradNav" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#3f78c0" />
+                                <stop offset="100%" stop-color="#6dbca2" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M22 7.49994L12 12.4999L2 7.49994L12 2.49994L22 7.49994Z" fill="url(#logoGradNav)" />
+                        <path d="M4 9.49994V14.4999C4 14.776 4.11071 15.0412 4.30263 15.2332L11.3026 22.2332C11.7161 22.6466 12.3653 22.6466 12.7788 22.2332L19.7788 15.2332C19.9707 15.0412 20.0814 14.776 20.0814 14.4999V9.49994L12.0407 13.4999L4 9.49994Z" fill="url(#logoGradNav)" />
+                    </svg>
+                </div>
+                <span class="text-slate-900 text-xl font-bold group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-brand-mid-blue group-hover:to-brand-teal group-hover:bg-clip-text transition-all duration-300">MentorIA</span>
+            </a>
+            <!-- Adicionar links de navegação aqui se necessário -->
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-16 min-h-screen">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-6xl font-black text-slate-900 mb-4">Nosso Objetivo é Tornar o Seu <span class="gradient-text">Progresso Inevitável</span>.</h1>
+                <p class="text-lg md:text-xl text-slate-600 max-w-4xl mx-auto mb-16">Queremos tirá-lo da esteira da "força de vontade" diária e colocá-lo em uma via expressa de sistemas comportamentais que trabalham por você.</p>
+            </div>
+
+            <div class="space-y-10">
+                <p class="text-center text-xl text-slate-800 font-semibold">O objetivo fundamental da MentorIA é provocar uma mudança de paradigma: de reativo para proativo, de tarefas para sistemas, de genérico para hiper-personalizado. <br/> Como alcançamos isso?</p>
+
+                <!-- Item 1: Foco em Sistemas -->
+                <div class="bg-white rounded-xl shadow-md p-8 border border-slate-200 flex flex-col md:flex-row items-center gap-8">
+                    <div class="flex-shrink-0 text-brand-mid-blue bg-blue-100 p-4 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">Foco em Sistemas, Não em Tarefas</h3>
+                        <p class="text-slate-600">Nosso principal objetivo é ajudá-lo a construir os comportamentos que levam à conclusão de tarefas de forma natural. Em vez de apenas gerenciar uma lista, você vai arquitetar os processos que garantem que as coisas certas sejam feitas consistentemente.</p>
+                    </div>
+                </div>
+
+                <!-- Item 2: Parceiro Proativo -->
+                <div class="bg-white rounded-xl shadow-md p-8 border border-slate-200 flex flex-col md:flex-row items-center gap-8">
+                     <div class="flex-shrink-0 text-brand-teal bg-teal-100 p-4 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">Ser um Parceiro Proativo</h3>
+                        <p class="text-slate-600">Não queremos ser outra notificação que você ignora. Nosso objetivo é ser um mentor que antecipa suas necessidades. Usamos dados do seu dia a dia para oferecer sugestões relevantes e em tempo real, transformando obstáculos em oportunidades.</p>
+                    </div>
+                </div>
+
+                <!-- Item 3: Hiper-personalização -->
+                <div class="bg-white rounded-xl shadow-md p-8 border border-slate-200 flex flex-col md:flex-row items-center gap-8">
+                     <div class="flex-shrink-0 text-brand-mid-blue bg-blue-100 p-4 rounded-full">
+                       <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">Promover a Hiper-personalização</h3>
+                        <p class="text-slate-600">Seu caminho é único. Por isso, nosso objetivo é oferecer uma experiência que se adapta totalmente a você. Com uma memória de longo prazo e acesso a uma base de conhecimento especializada, a IA da MentorIA oferece conselhos que vão muito além do genérico, entendendo seus desafios e preferências a fundo.</p>
+                    </div>
+                </div>
+
+                <!-- Item 4: Autonomia e Maestria -->
+                <div class="bg-white rounded-xl shadow-md p-8 border border-slate-200 flex flex-col md:flex-row items-center gap-8">
+                     <div class="flex-shrink-0 text-brand-teal bg-teal-100 p-4 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 20 20" fill="currentColor">
+                          <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 011.087.852l.224 1.07a1 1 0 001.963 0l.224-1.07a.999.999 0 011.086-.852l2.87-1.148a1 1 0 000-1.84l-7-3zM10 15a1 1 0 001 1h3a1 1 0 100-2h-3a1 1 0 00-1 1zM3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">Construir Autonomia e Maestria</h3>
+                        <p class="text-slate-600">O objetivo final não é torná-lo dependente de um app, mas sim capacitá-lo com as ferramentas e a mentalidade para se tornar o arquiteto da sua própria vida. A MentorIA é o andaime que o ajuda a construir um edifício de sucesso duradouro, até que você não precise mais dele.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-16">
+                 <p class="text-xl text-slate-800 font-semibold">Nosso compromisso é transformar a MentorIA de um "aplicativo legal" em uma ferramenta <span class="gradient-text">indispensável para o seu desenvolvimento pessoal.</span></p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-8 border-t border-slate-200 bg-white">
+        <div class="container mx-auto px-6 text-center text-slate-500">
+            <p>&copy; 2024 MentorIA. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
